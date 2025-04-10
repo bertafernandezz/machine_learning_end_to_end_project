@@ -116,11 +116,13 @@ This project maintains two complementary implementations:
 - NumPy
 - Flask
 - Streamlit
+- mapie
 [Other dependencies]
 
 ## Usage
 ### Local Development
 [Instructions for running notebooks and local development]
+!conda install -c conda-forge mapie
 
 ### API Deployment
 [Instructions for deploying the Flask API]
