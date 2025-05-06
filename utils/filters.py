@@ -39,7 +39,7 @@ class SimpleFilter:
         print(not_corr.shape)
         self.advanced_filtered.fit(not_corr, y_data)
 
-    def transform(self, X_data, y_data):
+    def transform(self, X_data, y_data=None):
         X_data = X_data.copy()
         X_data_low = self.lowVarianceFilter.transform(X_data)
         X_data_low_df = pd.DataFrame(

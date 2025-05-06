@@ -1,0 +1,122 @@
+{
+    "city": {
+        "0": "Kolkata"
+    },
+    "Area": {
+        "0": 883
+    },
+    "Location": {
+        "0": "Narendrapur"
+    },
+    "No. of Bedrooms": {
+        "0": 2
+    },
+    "Resale": {
+        "0": 1
+    },
+    "MaintenanceStaff": {
+        "0": 9
+    },
+    "Gymnasium": {
+        "0": 9
+    },
+    "SwimmingPool": {
+        "0": 9
+    },
+    "LandscapedGardens": {
+        "0": 9
+    },
+    "JoggingTrack": {
+        "0": 9
+    },
+    "RainWaterHarvesting": {
+        "0": 9
+    },
+    "IndoorGames": {
+        "0": 9
+    },
+    "ShoppingMall": {
+        "0": 9
+    },
+    "Intercom": {
+        "0": 9
+    },
+    "SportsFacility": {
+        "0": 9
+    },
+    "ATM": {
+        "0": 9
+    },
+    "ClubHouse": {
+        "0": 9
+    },
+    "School": {
+        "0": 9
+    },
+    "24X7Security": {
+        "0": 9
+    },
+    "PowerBackup": {
+        "0": 9
+    },
+    "CarParking": {
+        "0": 9
+    },
+    "StaffQuarter": {
+        "0": 9
+    },
+    "Cafeteria": {
+        "0": 9
+    },
+    "MultipurposeRoom": {
+        "0": 9
+    },
+    "Hospital": {
+        "0": 9
+    },
+    "WashingMachine": {
+        "0": 9
+    },
+    "Gasconnection": {
+        "0": 9
+    },
+    "AC": {
+        "0": 9
+    },
+    "Wifi": {
+        "0": 9
+    },
+    "Children'splayarea": {
+        "0": 9
+    },
+    "LiftAvailable": {
+        "0": 9
+    },
+    "BED": {
+        "0": 9
+    },
+    "VaastuCompliant": {
+        "0": 9
+    },
+    "Microwave": {
+        "0": 9
+    },
+    "GolfCourse": {
+        "0": 9
+    },
+    "TV": {
+        "0": 9
+    },
+    "DiningTable": {
+        "0": 9
+    },
+    "Sofa": {
+        "0": 9
+    },
+    "Wardrobe": {
+        "0": 9
+    },
+    "Stadium": {
+        "0": 9
+    }
+}

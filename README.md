@@ -8,42 +8,45 @@ This project demonstrates a comprehensive end-to-end machine learning pipeline f
 ### Notebooks
 The project follows a sequential approach through several Jupyter notebooks:
 
-- `data_collection.ipynb`:
+- `1. data_collection.ipynb`:
   - Data wrangling and preparation
   - Adding city names from filenames to each dataframe
   - Joining all dataframes into a unified dataset
   - Train/test splitting
   - Saving processed datasets
 
-- `descriptive_analysis.ipynb`:
+- `2. descriptive_analysis.ipynb`:
   - Exploratory data analysis
   - Statistical summaries
   - Data visualization
   - Pattern identification
 
-- `base_model.ipynb`:
+- `3. base_model.ipynb`:
   - Step-by-step development of a heuristic baseline model
   - Price prediction based on location and price per square foot
   - Benchmark performance establishment
 
-- `preprocessing_data.ipynb`:
+- `4. preprocessing_data.ipynb`:
   - Missing value imputation
   - Low and high cardinality categorical feature transformation
   - Numerical feature normalization and standardization
   - Cross-feature creation
 
-- `feature_selection.ipynb`:
+- `5. feature_selection.ipynb`:
   - Feature importance analysis
   - Dimensionality reduction
   - Optimal feature subset selection
 
-- `model_comparison_01.ipynb`: 
+- `6. model_comparison_01.ipynb`: 
   - Train a Random Forest model
   - Evaluate model performance
 
-- `model_comparison_02.ipynb`:
-  - Train a HistGradientBoostingRegressor model
-  - Evaluate model performance
+- `7. conforma_predictions_model.ipynb`:
+  - Implementation of conformal predictions for uncertainty quantification
+  - Uses MAPIE (Model Agnostic Prediction Interval Estimator)
+  - Hyperparameter optimization with Optuna
+  - Generates prediction intervals with 80% confidence level
+  - Evaluates model performance using coverage and interval width metrics
 
 ### Refactored Notebooks
 Each of the main notebooks has a corresponding `_refactored.ipynb` version. These refactored notebooks perform the same tasks as their non-refactored counterparts but utilize the encapsulated code from the `models` and `utils` folders. This approach demonstrates how to structure code for better reusability and maintainability:

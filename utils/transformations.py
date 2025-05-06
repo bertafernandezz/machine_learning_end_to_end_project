@@ -46,7 +46,7 @@ class ExtendedTransformation:
         )
         # fit low_cardinality features wiht ohot encoding
         self.low_card_columns = ["city"] + self.bin_vars_columns.to_list()
-        print("low_card_columns shape: ", len(self.low_card_columns))  
+        print("low_card_columns shape: ", len(self.low_card_columns))
         self.ohEnconder.fit(X_data[self.low_card_columns])
         self.loc_feature = "Location"
 
@@ -70,9 +70,10 @@ class ExtendedTransformation:
 
         # scale to standard
 
-    def transform(self, X_data, y_data):
+    def transform(self, X_data, y_data=None):
         X = X_data.copy()
-        y = y_data.copy()
+        if y_data is not None:
+            y = y_data.copy()
 
         # impute missing data
         X = X.replace({9: np.nan})
@@ -94,11 +95,14 @@ class ExtendedTransformation:
         print("X_high_card shape: ", X_high_card.shape)
 
         # transform numerical vars.
-        y_transformed = self.y_Transformer.transform(y)
+        if y_data is not None:
+            y_transformed = self.y_Transformer.transform(y)
         area_normal = self.area_Transformer.transform(X[[self.area_feature]])
         beds_normal = self.beds_Transformer.transform(X[[self.beds_feaures]])
 
-        y_scaled = self.scaler_y.transform(y_transformed)
+        if y_data is not None:
+            y_scaled = self.scaler_y.transform(y_transformed)
+
         area_scaled = self.scaler_area.transform(area_normal)
         beds_scaled = self.scalar_beds.transform(beds_normal)
 
@@ -109,7 +113,7 @@ class ExtendedTransformation:
             },
             index=X.index,
         )
-        features_to_cross = pd.concat([X_low_card,X_num], axis=1)
+        features_to_cross = pd.concat([X_low_card, X_num], axis=1)
         self.polyfeatures.fit(features_to_cross)
         crossed_features = self.polyfeatures.transform(features_to_cross)
 
@@ -119,9 +123,14 @@ class ExtendedTransformation:
             index=X.index,
         )
         print("X_crossed_features shape: ", X_crossed_features.shape)
-        X_EXPANDED = pd.concat([X_num, X_low_card, X_high_card, X_crossed_features], axis=1)
+        X_EXPANDED = pd.concat(
+            [X_num, X_low_card, X_high_card, X_crossed_features], axis=1
+        )
         print("X_EXPANDED shape: ", X_EXPANDED.shape)
-        return X_EXPANDED, y_scaled
+        if y_data is not None:
+            return X_EXPANDED, y_scaled
+
+        return X_EXPANDED
 
     def inverse_transform(self, y_data):
         return self.y_Transformer.inverse_transform(
@@ -142,9 +151,11 @@ class SimpleTransformation:
         self.ohEnconder = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
         self.ohEnconder.fit(X_data[["city"]])
 
-    def transform(self, X_data, y_data):
+    def transform(self, X_data, y_data=None):
         X = X_data.copy()
-        y = y_data.copy()
+        if y_data is not None:
+            y = y_data.copy()
+
         X = X.drop(columns=[self.remove_column])
         X[self.impute_columns] = self.imputer.transform(X[self.impute_columns])
         X_cat = pd.DataFrame(
@@ -153,4 +164,6 @@ class SimpleTransformation:
             index=X.index,
         )
         X_final = pd.concat([X.drop(columns=["city"]), X_cat], axis=1)
-        return X_final, y
+        if y_data is not None:
+            return X_final, y
+        return X_final
